@@ -14,7 +14,11 @@ public class Enemy : MonoBehaviour
     // Basic movement logic shared by all enemies
     protected virtual void Move()
     {
-        if (target == null) return;
+        if (target == null)
+        {
+            Debug.LogWarning("Target not set for " + name);
+            return;
+        }
 
         Vector3 direction = (target.position - transform.position).normalized;
         transform.position += direction * speed * Time.deltaTime;
