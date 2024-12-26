@@ -11,9 +11,9 @@ public class RoundManager : MonoBehaviour
     public float enemySpawnDuration = 60f;
 
 
-    public RoundPhase GetRoundStatus() => roundPhase;
-    public int GetCurrentRound() => currentRound;
-    public float GetPhaseTimer() => phaseTimer;
+    public RoundPhase getRoundPhase() => roundPhase;
+    public int getCurrentRound() => currentRound;
+    public float getPhaseTimer() => phaseTimer;
 
     public enum RoundPhase
     {

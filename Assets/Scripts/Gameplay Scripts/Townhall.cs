@@ -16,11 +16,12 @@ public class Townhall : MonoBehaviour
 
     private void Update() 
     {
-        if (health <= 0)
-        {
-            GameOver();
-        }
+        CheckTownhallDeath();
     }
+ 
+ 
+ 
+ 
     public float getHealth()
     {
         return health;
@@ -29,6 +30,16 @@ public class Townhall : MonoBehaviour
     public void setHealth(float newHealth)
     {
         this.health = newHealth;
+    }
+
+  
+  
+    public void CheckTownhallDeath()
+    {
+        if (health <= 0)
+        {
+            GameOver();
+        }
     }
 
     public void GameOver()
