@@ -20,7 +20,8 @@ public class RoundManager : MonoBehaviour
         ShopPhase,
         EnemiesSpawning,
         EnemiesNoLongerSpawning,
-        RoundOver
+        RoundOver,
+        GameOver
     }
 
 
@@ -45,6 +46,10 @@ public class RoundManager : MonoBehaviour
 
             case RoundPhase.RoundOver:
                 Debug.Log($"Round {currentRound} is over!");
+                break;
+
+            case RoundPhase.GameOver:
+                Debug.Log("Game Over!");
                 break;
         }
     }
