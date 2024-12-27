@@ -54,6 +54,8 @@ public class RoundManager : MonoBehaviour
         }
     }
 
+    public void setCurrentRound(int round) => currentRound = round;
+
 
     public void goToNextRound()
     {
@@ -83,6 +85,14 @@ public class RoundManager : MonoBehaviour
         }
     }
 
+
+
+    private void Start() 
+    {
+        setRoundPhase(RoundPhase.ShopPhase);
+        setCurrentRound(1);
+    }
+
     private void Update()
     {
 
@@ -95,7 +105,9 @@ public class RoundManager : MonoBehaviour
             AdvancePhase();
         }
      }
-}
+    }
+
+    
 
 
 

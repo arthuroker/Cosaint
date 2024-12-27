@@ -10,7 +10,7 @@ public class TownhallInfoUI : MonoBehaviour
     void Start()
     {
         townhall = GameObject.Find("Townhall").GetComponent<Townhall>();
-        townhallHealthText = GameObject.Find("Townhall Health").GetComponent<TextMeshProUGUI>();
+        townhallHealthText = GameObject.Find("Townhall Health Text").GetComponent<TextMeshProUGUI>();
     }
 
     void Update()
