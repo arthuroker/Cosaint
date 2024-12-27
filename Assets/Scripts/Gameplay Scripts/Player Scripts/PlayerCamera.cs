@@ -7,6 +7,8 @@ public class PlayerCamera : MonoBehaviour
 
     public Transform orientation;
 
+    Transform wand;
+
     float xRotation;
     float yRotation;
 
@@ -14,6 +16,7 @@ public class PlayerCamera : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        wand = GameObject.Find("Wand").transform;
     }
 
     void Update()
@@ -28,6 +31,8 @@ public class PlayerCamera : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+
+        wand.rotation = transform.rotation;
     }
 
 
