@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
     {
         abilityManager = GameObject.Find("Ability Manager").GetComponent<AbilityManager>();
 
-        abilityManager.AddAbility(new PrototypeAbility(spherePrefab , orientation));
+        abilityManager.AddAbility(new PrototypeAbility(spherePrefab, orientation));
+
+        PrototypeAbility prototypeAbility = (PrototypeAbility) abilityManager.GetAbilityByName("Prototype Ability");
+        prototypeAbility.UpgradeAbility();
     }
 }

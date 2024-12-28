@@ -21,6 +21,11 @@ public class AbilityManager : MonoBehaviour
         }
     }
 
+    public AbilityBase GetAbilityByName(string name)
+    {
+        return abilities.Find(ability => ability.abilityName == name);
+    }
+
     public void AddAbility(AbilityBase ability)
     {
         if (!abilities.Contains(ability))
