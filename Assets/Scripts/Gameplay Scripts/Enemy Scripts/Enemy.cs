@@ -6,8 +6,13 @@ public class Enemy : MonoBehaviour
     public float speed = 2f;
     public Transform target;
 
+    private bool isFrozen = false;
+    private float freezeTimer = 0f;
+
     private void Update()
     {
+        if (isFrozen) HandleFreeze();
+        
         Move();
     }
 
@@ -32,6 +37,32 @@ public class Enemy : MonoBehaviour
         {
             Die();
         }
+    }
+
+    public void ApplyFreeze(float freezeTime)
+    {
+        if (!isFrozen)
+        {
+            isFrozen = true;
+            freezeTimer = freezeTime;
+            speed = 0f; 
+        }
+    }
+
+    private void HandleFreeze()
+    {
+        freezeTimer -= Time.deltaTime;
+        
+        if (freezeTimer <= 0)
+        {
+            isFrozen = false;
+            ResetSpeed();
+        }
+    }
+
+    private void ResetSpeed()
+    {
+        speed = 2f;
     }
 
     // Death logic
