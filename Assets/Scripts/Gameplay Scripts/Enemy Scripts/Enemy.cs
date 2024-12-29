@@ -4,10 +4,15 @@ public class Enemy : MonoBehaviour
 {
     public float health = 100f;
     public float speed = 2f;
-    public Transform target;
+    private Transform target;
 
     private bool isFrozen = false;
     private float freezeTimer = 0f;
+
+    private void Start() 
+    {
+        target = GameObject.Find("Townhall").transform;
+    }
 
     private void Update()
     {

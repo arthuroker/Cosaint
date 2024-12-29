@@ -8,7 +8,7 @@ public class RoundManager : MonoBehaviour
     private float phaseTimer;
 
     public float shopPhaseDuration = 30f;
-    public float enemySpawnDuration = 60f;
+    public float roundOverDuration = 10f;
 
 
     public RoundPhase getRoundPhase() => roundPhase;
@@ -36,8 +36,6 @@ public class RoundManager : MonoBehaviour
                 break;
 
             case RoundPhase.EnemiesSpawning:
-                phaseTimer = enemySpawnDuration;
-                //Call Spawn enemy Logic
                 break;
 
             case RoundPhase.EnemiesNoLongerSpawning:
@@ -61,6 +59,7 @@ public class RoundManager : MonoBehaviour
     {
         currentRound++;
         setRoundPhase(RoundPhase.ShopPhase);
+        phaseTimer = shopPhaseDuration;
     }
 
     public void AdvancePhase()
@@ -77,6 +76,7 @@ public class RoundManager : MonoBehaviour
 
             case RoundPhase.EnemiesNoLongerSpawning:
                 setRoundPhase(RoundPhase.RoundOver);
+                phaseTimer = roundOverDuration;
                 break;
 
             case RoundPhase.RoundOver:
@@ -96,7 +96,7 @@ public class RoundManager : MonoBehaviour
     private void Update()
     {
 
-     if (roundPhase == RoundPhase.ShopPhase || roundPhase == RoundPhase.EnemiesSpawning)
+     if (roundPhase == RoundPhase.ShopPhase || roundPhase == RoundPhase.RoundOver)
      {
         phaseTimer -= Time.deltaTime;
        
