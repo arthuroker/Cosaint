@@ -23,4 +23,9 @@ public class Player : MonoBehaviour
         wisdomPoints += points;
     }
 
+    public int GetWisdomPoints()
+    {
+        return wisdomPoints;
+    }
+
 }
