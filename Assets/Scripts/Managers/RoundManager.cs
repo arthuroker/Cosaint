@@ -11,7 +11,7 @@ public class RoundManager : MonoBehaviour
     public float roundOverDuration = 10f;
 
 
-    public RoundPhase getRoundPhase() => roundPhase;
+    public RoundPhase getCurrentRoundPhase() => roundPhase;
     public int getCurrentRound() => currentRound;
     public float getPhaseTimer() => phaseTimer;
 

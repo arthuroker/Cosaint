@@ -29,7 +29,7 @@ public class EnemySpawnManager : MonoBehaviour
     private void Update()
     {
 
-        if (roundManager.getRoundPhase() == RoundManager.RoundPhase.EnemiesSpawning && enemiesSpawned < enemiesPerRound)
+        if (roundManager.getCurrentRoundPhase() == RoundManager.RoundPhase.EnemiesSpawning && enemiesSpawned < enemiesPerRound)
         {
             spawnTimer += Time.deltaTime;
 
@@ -46,7 +46,7 @@ public class EnemySpawnManager : MonoBehaviour
             ResetSpawnedCount();
         }
 
-        if (AreAllEnemiesDefeated() && roundManager.getRoundPhase() == RoundManager.RoundPhase.EnemiesNoLongerSpawning)
+        if (AreAllEnemiesDefeated() && roundManager.getCurrentRoundPhase() == RoundManager.RoundPhase.EnemiesNoLongerSpawning)
         {
             roundManager.AdvancePhase();
         }

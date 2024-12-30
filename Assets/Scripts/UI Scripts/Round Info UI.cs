@@ -24,15 +24,15 @@ public class RoundInfoUI : MonoBehaviour
     {
         timerText.enabled = false;
 
-        if (roundManager.getRoundPhase() == RoundManager.RoundPhase.ShopPhase ||
-            roundManager.getRoundPhase() == RoundManager.RoundPhase.RoundOver)
+        if (roundManager.getCurrentRoundPhase() == RoundManager.RoundPhase.ShopPhase ||
+            roundManager.getCurrentRoundPhase() == RoundManager.RoundPhase.RoundOver)
         {
             float currentTimer = roundManager.getPhaseTimer();
             timerText.text = "Time Left: " + (int) currentTimer; 
             timerText.enabled = true;
         }
 
-        string currentPhase = roundManager.getRoundPhase().ToString();
+        string currentPhase = roundManager.getCurrentRoundPhase().ToString();
         phaseText.text = "Phase: " + currentPhase;
 
         string currentRoundNumber = roundManager.getCurrentRound().ToString();
