@@ -3,6 +3,8 @@ using UnityEngine;
 public class RoundManager : MonoBehaviour
 {
 
+    public static RoundManager Instance { get; private set; }
+
     private RoundPhase roundPhase;
     private int currentRound = 0;
     private float phaseTimer;
@@ -92,6 +94,18 @@ public class RoundManager : MonoBehaviour
         setRoundPhase(RoundPhase.ShopPhase);
         setCurrentRound(1);
     }
+
+    private void Awake()
+{
+    if (Instance != null && Instance != this)
+    {
+        Destroy(gameObject);
+    }
+    else
+    {
+        Instance = this;
+    }
+}
 
     private void Update()
     {

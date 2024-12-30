@@ -2,6 +2,7 @@ using UnityEngine;
 
 public abstract class AbilityBase
 {
+
     public string abilityName { get; private set; }
     public KeyCode activationKey { get; private set; }
     public float cooldownTime { get; private set; }
@@ -19,6 +20,16 @@ public abstract class AbilityBase
 
     public void Activate()
     {
+
+        // Check if the current game phase allows ability activation
+        if (RoundManager.Instance.getCurrentRoundPhase() != RoundManager.RoundPhase.EnemiesSpawning &&
+            RoundManager.Instance.getCurrentRoundPhase() != RoundManager.RoundPhase.EnemiesNoLongerSpawning)
+        {
+            Debug.Log($"{abilityName} cannot be activated during the {RoundManager.Instance.getCurrentRoundPhase()} phase.");
+            return;
+        }
+
+
         if (Time.time >= lastActivatedTime + cooldownTime)
         {
             lastActivatedTime = Time.time;
