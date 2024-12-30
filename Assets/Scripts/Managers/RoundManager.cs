@@ -17,6 +17,8 @@ public class RoundManager : MonoBehaviour
     public int getCurrentRound() => currentRound;
     public float getPhaseTimer() => phaseTimer;
 
+    private Player player;
+
     public enum RoundPhase
     {
         ShopPhase,
@@ -60,6 +62,7 @@ public class RoundManager : MonoBehaviour
     public void goToNextRound()
     {
         currentRound++;
+        player.AwardWisdomPoints(2);
         setRoundPhase(RoundPhase.ShopPhase);
         phaseTimer = shopPhaseDuration;
     }
@@ -91,6 +94,7 @@ public class RoundManager : MonoBehaviour
 
     private void Start() 
     {
+        player = GameObject.Find("Player").GetComponent<Player>();
         setRoundPhase(RoundPhase.ShopPhase);
         setCurrentRound(1);
     }
