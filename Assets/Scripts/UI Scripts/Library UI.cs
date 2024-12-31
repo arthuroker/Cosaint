@@ -46,7 +46,11 @@ public class LibraryUI : MonoBehaviour
 
         } else if (libraryActive && Input.GetKeyDown(KeyCode.L)) //In library UI within range but want to get out
         {
-            Debug.Log("got in");
+            libraryUI.SetActive(false);
+            libraryActive = false;
+
+        } else if (!libraryUIInteraction.getIsPlayerInRange()) //Player not in range, always have libraryUI off
+        {
             libraryUI.SetActive(false);
             libraryActive = false;
 
@@ -54,12 +58,6 @@ public class LibraryUI : MonoBehaviour
             wisdomPoints = player.GetWisdomPoints();
             wisdomPointsText.text = $"Wisdom Points: {wisdomPoints}";
             abilities = abilityManager.GetAbilities();
-            
-
-        } else if (!libraryUIInteraction.getIsPlayerInRange()) //Player not in range, always have libraryUI off
-        {
-            libraryUI.SetActive(false);
-            libraryActive = false;
         }
     }
 
