@@ -86,7 +86,7 @@ public class EnemySpawnManager : MonoBehaviour
         float z = areaCenter.position.z + Mathf.Sin(randomAngle) * radius;
 
         // Return the position with the same Y-coordinate as the area center
-        return new Vector3(x, areaCenter.position.y, z);
+        return new Vector3(x, 3, z);
     }
 
     private void ResetSpawnedCount()
