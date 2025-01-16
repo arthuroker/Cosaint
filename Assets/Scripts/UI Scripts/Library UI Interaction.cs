@@ -23,7 +23,10 @@ public class LibraryUIInteraction : MonoBehaviour
     void Update()
     {
 
-        if (roundManager.getCurrentRoundPhase() != RoundManager.RoundPhase.ShopPhase) return;
+        if (roundManager.getCurrentRoundPhase() != RoundManager.RoundPhase.ShopPhase)
+        {
+            libraryInteractionText.enabled = false;
+        }
 
         float distanceToLibrary = Vector3.Distance(playerTransform.position, libraryTransform.position);
 
