@@ -6,11 +6,13 @@ public class Townhall : MonoBehaviour
 
     private RoundManager roundManager;
 
+    private GameObject damageCollider;
+
     private void Start()
     {
         health = 1000;
         roundManager = GameObject.Find("Round Manager").GetComponent<RoundManager>();
- 
+        damageCollider = GameObject.Find("Damage Collider");
     }
 
 
