@@ -32,6 +32,11 @@ public class Townhall : MonoBehaviour
         this.health = newHealth;
     }
 
+    public void TakeDamage(float amount)
+    {
+        health -= amount * Time.deltaTime;
+    }
+
   
   
     public void CheckTownhallDeath()

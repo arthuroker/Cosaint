@@ -4,6 +4,8 @@ public class Enemy : MonoBehaviour
 {
     public float health = 100f;
     public float speed = 2f;
+
+    private float damage = 5.00f;
     private Transform target;
 
     private bool isFrozen = false;
@@ -82,4 +84,6 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log($"{name} has no special ability!");
     }
+
+    public float GetDamage() => damage;
 }
